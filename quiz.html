@@ -2,19 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Quiz - CampusConnect</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>The Quiz</h1>
-      <p class="subtitle">Answer these five questions to help us find your best matches.</p>
-      <form id="quizForm"></form>
-      <button type="submit" form="quizForm">Find My Matches</button>
-    </div>
+  <div class="card">
+    <h2>The Quiz</h2>
+    <p>Answer these five questions to help us find your best matches.</p>
+
+    <form id="quizForm">
+      <div class="question">
+        <label>1. Favorite spot to spend time together?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="q1" required /> Lovers park</label>
+          <label><input type="radio" name="q1" /> Library</label>
+          <label><input type="radio" name="q1" /> Benches near the mahabharath painting</label>
+          <label><input type="radio" name="q1" /> Back canteen</label>
+          <label><input type="radio" name="q1" /> 2nd floor of campus cafe</label>
+        </div>
+      </div>
+
+      <!-- Add more questions as needed -->
+
+      <button type="submit">Submit Quiz</button>
+    </form>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // You can store answers here if needed
+      window.location.href = 'results.html';
+    });
+  </script>
 </body>
 </html>
