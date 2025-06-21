@@ -1,121 +1,63 @@
+// Questions
 const questions = [
   {
     id: "q1",
     text: "Favorite spot to spend time together?",
-    options: ["Lovers park", "Library", "Benchs near the mahabharath painting", "Back canteen", "2nd floor of campus cafe"]
+    options: ["Lovers park", "Library", "Benchs near the Mahabharath painting", "Back canteen", "2nd floor of campus cafe"],
   },
   {
     id: "q2",
     text: "What is your love language?",
-    options: ["Physical touch", "Words of affirmation", "Quality time", "Receiving gifts", "Acts of service"]
+    options: ["Physical touch", "Words of affirmation", "Quality time", "Receiving gifts", "Acts of service"],
   },
   {
     id: "q3",
-    text: "What do you look for in a partner?",
-    options: ["Personality", "Physical attraction", "Colour", "Vibe"]
+    text: "What do you usually look for in someone you're dating?",
+    options: ["Personality", "Physical attraction", "Colour", "Vibe"],
   },
   {
     id: "q4",
     text: "What type of relationship are you looking for?",
-    options: ["Casual dating", "Long term relationship", "Just to meet new ppl", "Situationship"]
+    options: ["Casual dating", "Long term relationship", "Just to meet new ppl", "Situationship"],
   },
   {
     id: "q5",
-    text: "Your dating alter ego?",
-    options: ["Possessive", "Toxic", "Clingy", "Unpredictable"]
-  }
+    text: "Which one of these is your dating alter ego?",
+    options: ["Possessive", "Toxic", "Clingy", "Unpredictable"],
+  },
 ];
 
-function buildQuizForm() {
-  const form = document.getElementById("quizForm");
-  if (!form) return;
+// Profile form
+const profileForm = document.getElementById("profileForm");
+if (profileForm) {
+  profileForm.onsubmit = (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const instagram = document.getElementById("instagram").value;
+    const gender = document.querySelector('input[name="gender"]:checked')?.value;
+    const preference = document.querySelector('input[name="preference"]:checked')?.value;
+    if (name && instagram && gender && preference) {
+      localStorage.setItem("campusConnectUser", JSON.stringify({ name, instagram, gender, preference }));
+      window.location.href = "quiz.html";
+    }
+  };
+}
 
-  questions.forEach((q, index) => {
-    const div = document.createElement("div");
-    div.innerHTML = `<p><strong>${index + 1}. ${q.text}</strong></p>`;
-    q.options.forEach(option => {
-      const id = `${q.id}-${option}`;
-      div.innerHTML += `
-        <label>
-          <input type="radio" name="${q.id}" value="${option}" required />
-          ${option}
-        </label><br/>
+// Quiz page
+const quizForm = document.getElementById("quizForm");
+if (quizForm) {
+  questions.forEach((q, i) => {
+    const qDiv = document.createElement("div");
+    qDiv.innerHTML = `<label><strong>${i + 1}. ${q.text}</strong></label>`;
+    q.options.forEach((opt) => {
+      qDiv.innerHTML += `
+        <label><input type="radio" name="${q.id}" value="${opt}" required /> ${opt}</label><br/>
       `;
     });
-    form.appendChild(div);
-    form.appendChild(document.createElement("hr"));
+    quizForm.appendChild(qDiv);
   });
 
-  const button = document.createElement("button");
-  button.textContent = "Submit Answers";
-  button.type = "submit";
-  form.appendChild(button);
-
-  form.addEventListener("submit", e => {
+  quizForm.onsubmit = (e) => {
     e.preventDefault();
-    const answers = questions.map(q => {
-      const selected = document.querySelector(`input[name="${q.id}"]:checked`);
-      return selected?.value || "";
-    });
+    const answers = questions.map((q) => document.querySelector(`input[name="${q.id}"]:checked`)?.value);
     localStorage.setItem("campusConnectQuiz", JSON.stringify({ answers }));
-    window.location.href = "matches.html";
-  });
-}
-
-function showMatches() {
-  const quizData = JSON.parse(localStorage.getItem("campusConnectQuiz") || "{}");
-  const userData = JSON.parse(localStorage.getItem("campusConnectUser") || "{}");
-  const matchesDiv = document.getElementById("matchesContainer");
-  if (!quizData.answers || !userData || !mockUsers) return;
-
-  const preference = userData.preference;
-  const answers = quizData.answers;
-
-  const matches = mockUsers
-    .filter(u => preference === "any" || u.gender === preference)
-    .map(user => {
-      const score = user.answers.reduce((acc, ans, i) => acc + (ans === answers[i] ? 1 : 0), 0);
-      return { ...user, score };
-    })
-    .filter(u => u.score >= 3)
-    .sort((a, b) => b.score - a.score);
-
-  if (matches.length === 0) {
-    matchesDiv.innerHTML = "<p>No strong matches found.</p>";
-    return;
-  }
-
-  matches.forEach(match => {
-    matchesDiv.innerHTML += `
-      <div class="match">
-        <h3>${match.name}</h3>
-        <p>Instagram: <a href="https://instagram.com/${match.instagramId}" target="_blank">@${match.instagramId}</a></p>
-        <p>Match Score: ${match.score}/5</p>
-      </div>
-    `;
-  });
-}
-
-function startOver() {
-  localStorage.clear();
-  window.location.href = "index.html";
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("profileForm")) {
-    document.getElementById("profileForm").addEventListener("submit", e => {
-      e.preventDefault();
-      const data = {
-        name: document.getElementById("name").value,
-        instagramId: document.getElementById("instagramId").value,
-        gender: document.getElementById("gender").value,
-        preference: document.getElementById("preference").value
-      };
-      localStorage.setItem("campusConnectUser", JSON.stringify(data));
-      window.location.href = "quiz.html";
-    });
-  }
-
-  buildQuizForm();
-  showMatches();
-});
