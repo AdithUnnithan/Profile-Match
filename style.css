@@ -1,4 +1,4 @@
-/* Global Reset and Base Styles */
+/* Reset & Mobile Base Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,21 +7,140 @@
 }
 
 body {
-  background: linear-gradient(to right, #f9fafb, #f0f4f8);
-  color: #111827;
+  background: linear-gradient(to bottom right, #e0f7fa, #f3e8ff);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
+  padding: 1rem;
+  color: #111827;
 }
 
-/* Container Layout */
+/* Mobile Container */
 .container {
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 1rem;
-  max-width: 720px;
   width: 100%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 480px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
+
+/* Headings */
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: #4f46e5;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  transition: border 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: #4f46e5;
+  outline: none;
+}
+
+/* Button */
+button {
+  background-color: #4f46e5;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #3730a3;
+}
+
+/* Quiz */
+.quiz-question {
+  margin-bottom: 1.5rem;
+}
+
+.quiz-option {
+  background: #f3f4f6;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.quiz-option:hover {
+  background-color: #dbeafe;
+}
+
+.quiz-option input {
+  accent-color: #4f46e5;
+}
+
+/* Match Card */
+.match {
+  background-color: #f8fafc;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.match a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.match a:hover {
+  text-decoration: underline;
+}
+
+/* Hide on Desktop */
+@media (min-width: 768px) {
+  body::before {
+    content: "This app is optimized for mobile only.";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1f2937;
+    color: white;
+    position: fixed;
+    inset: 0;
+    z-in
