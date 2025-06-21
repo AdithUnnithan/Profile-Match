@@ -1,17 +1,77 @@
-<!-- quiz.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Campus Connect - Quiz</title>
+  <title>CampusConnect – Quiz</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>The Quiz</h1>
-    <form id="quizForm"></form>
+    <h1>Take the Quiz 💘</h1>
+    <form id="quiz-form"></form>
+    <button type="submit" form="quiz-form">Find My Matches</button>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    const questions = [
+      {
+        id: "q1",
+        text: "Favorite spot to spend time together?",
+        options: [
+          "Lovers park", "Library", "Benchs near the mahabharath painting",
+          "Back canteen", "2nd floor of campus cafe"
+        ]
+      },
+      {
+        id: "q2",
+        text: "What is your love language?",
+        options: ["Physical touch", "Words of affirmation", "Quality time", "Receiving gifts", "Acts of service"]
+      },
+      {
+        id: "q3",
+        text: "What do you usually look for in someone you're dating?",
+        options: ["Personality", "Physical attraction", "Colour", "Vibe"]
+      },
+      {
+        id: "q4",
+        text: "What type of relationship are you looking for?",
+        options: ["Casual dating", "Long term relationship", "Just to meet new ppl", "Situationship"]
+      },
+      {
+        id: "q5",
+        text: "Which one of these is your dating alter ego?",
+        options: ["Possessive", "Toxic", "Clingy", "Unpredictable"]
+      }
+    ];
+
+    const form = document.getElementById("quiz-form");
+
+    questions.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.className = "quiz-question";
+      div.innerHTML = `<p><strong>${index + 1}. ${q.text}</strong></p>`;
+      q.options.forEach(option => {
+        div.innerHTML += `
+          <label class="quiz-option">
+            <input type="radio" name="${q.id}" value="${option}" required />
+            ${option}
+          </label>
+        `;
+      });
+      form.appendChild(div);
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const answers = [];
+      for (const q of questions) {
+        const val = form[q.id].value;
+        if (!val) return alert("Please answer all questions!");
+        answers.push(val);
+      }
+      localStorage.setItem("campusConnectQuiz", JSON.stringify({ answers }));
+      window.location.href = "matches.html";
+    });
+  </script>
 </body>
 </html>
