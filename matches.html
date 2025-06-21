@@ -2,58 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CampusConnect – Matches</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Matches</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Your Matches ❤️</h1>
-    <div id="matches-container"></div>
-    <button onclick="restart()">Start Over</button>
+    <div class="card" id="resultsContainer">
+      <!-- Matches or "Still Searching" UI will be inserted here -->
+    </div>
   </div>
-
-  <script src="users.js"></script>
-  <script>
-    function restart() {
-      localStorage.clear();
-      window.location.href = "index.html";
-    }
-
-    function calculateScore(a1, a2) {
-      return a1.filter((val, i) => val === a2[i]).length;
-    }
-
-    const user = JSON.parse(localStorage.getItem("campusConnectUser"));
-    const quiz = JSON.parse(localStorage.getItem("campusConnectQuiz"));
-    const matchesDiv = document.getElementById("matches-container");
-
-    if (!user || !quiz) {
-      matchesDiv.innerHTML = "<p>Profile not found. <a href='index.html'>Start Over</a></p>";
-    } else {
-      const matches = mockUsers
-        .filter(u => user.preference === "any" || u.gender === user.preference)
-        .map(u => ({
-          ...u,
-          score: calculateScore(quiz.answers, u.answers)
-        }))
-        .filter(u => u.score >= 3)
-        .sort((a, b) => b.score - a.score);
-
-      if (matches.length === 0) {
-        matchesDiv.innerHTML = "<p>No strong matches yet. Try again later!</p>";
-      } else {
-        matches.forEach(m => {
-          const el = document.createElement("div");
-          el.className = "match";
-          el.innerHTML = `
-            <h3>${m.name}</h3>
-            <p>Match Score: ${m.score}/5</p>
-            <p><a href="https://instagram.com/${m.instagramId}" target="_blank">@${m.instagramId}</a></p>
-          `;
-          matchesDiv.appendChild(el);
-        });
-      }
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
