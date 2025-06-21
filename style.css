@@ -1,146 +1,99 @@
-/* Reset & Mobile Base Styles */
-* {
-  box-sizing: border-box;
+/* Base aesthetic: mobile only */
+body {
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  background: linear-gradient(to bottom right, #e0f7fa, #f3e8ff);
+  background: linear-gradient(to right, #f9f9ff, #eef2f3);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   min-height: 100vh;
-  padding: 1rem;
-  color: #111827;
 }
 
-/* Mobile Container */
 .container {
   width: 100%;
   max-width: 480px;
-  margin: auto;
-  background-color: #ffffff;
-  padding: 1.5rem;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
   border-radius: 1rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  padding: 2rem;
+  margin-top: 2rem;
 }
 
-/* Headings */
-h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
+.icon {
+  font-size: 2rem;
   text-align: center;
-  color: #4f46e5;
-  margin-bottom: 1.5rem;
-}
-
-h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1f2937;
-}
-
-/* Form Elements */
-form {
+  background: #eee;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
   display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  align-items: center;
+  justify-content: center;
 }
 
-label {
-  font-weight: 600;
-  color: #374151;
+h1 {
+  text-align: center;
+  font-weight: 700;
   margin-bottom: 0.25rem;
 }
 
-input,
-select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  background-color: #f9fafb;
-  transition: border 0.2s;
-}
-
-input:focus,
-select:focus {
-  border-color: #4f46e5;
-  outline: none;
-}
-
-/* Button */
-button {
-  background-color: #4f46e5;
-  color: white;
-  padding: 0.9rem;
-  border: none;
-  border-radius: 0.75rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background-color: #3730a3;
-}
-
-/* Quiz */
-.quiz-question {
+.subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #666;
   margin-bottom: 1.5rem;
 }
 
-.quiz-option {
-  background: #f3f4f6;
+label {
+  display: block;
+  margin: 0.75rem 0 0.25rem;
+  font-weight: 600;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
   border-radius: 0.5rem;
-  padding: 0.6rem 0.8rem;
+}
+
+.input-with-icon {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin: 0.5rem 0;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: background 0.2s;
 }
 
-.quiz-option:hover {
-  background-color: #dbeafe;
+.input-with-icon span {
+  padding: 0.75rem;
+  background: #eee;
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
-.quiz-option input {
-  accent-color: #4f46e5;
+.input-with-icon input {
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-left: none;
 }
 
-/* Match Card */
-.match {
-  background-color: #f8fafc;
-  border: 1px solid #e5e7eb;
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+button {
+  width: 100%;
+  background: #0d1321;
+  color: white;
+  font-size: 1rem;
   padding: 1rem;
+  border: none;
   border-radius: 0.75rem;
-  margin-bottom: 1.25rem;
+  margin-top: 1rem;
 }
-
-.match a {
-  color: #4f46e5;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.match a:hover {
-  text-decoration: underline;
-}
-
-/* Hide on Desktop */
-@media (min-width: 768px) {
-  body::before {
-    content: "This app is optimized for mobile only.";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #1f2937;
-    color: white;
-    position: fixed;
-    inset: 0;
-    z-in
