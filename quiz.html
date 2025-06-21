@@ -1,69 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Quiz</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="card">
-    <h1>The Quiz</h1>
-    <p class="subtitle">Answer these five questions to help us find your best matches.</p>
-
-    <form id="quizForm">
-      <div class="question">
-        <p>1. Favorite spot to spend time together?</p>
-        <label><input type="radio" name="q1" value="Lovers park" required /> Lovers park</label>
-        <label><input type="radio" name="q1" value="Library" /> Library</label>
-        <label><input type="radio" name="q1" value="Benches near painting" /> Benches near the mahabharath painting</label>
-        <label><input type="radio" name="q1" value="Back canteen" /> Back canteen</label>
-        <label><input type="radio" name="q1" value="Campus cafe" /> 2nd floor of campus cafe</label>
-      </div>
-
-      <div class="question">
-        <p>2. What is your love language?</p>
-        <label><input type="radio" name="q2" value="Words" required /> Words of affirmation</label>
-        <label><input type="radio" name="q2" value="Touch" /> Physical touch</label>
-        <label><input type="radio" name="q2" value="Gifts" /> Gifts</label>
-        <label><input type="radio" name="q2" value="Quality time" /> Quality time</label>
-        <label><input type="radio" name="q2" value="Acts of service" /> Acts of service</label>
-      </div>
-
-      <div class="question">
-        <p>3. Ideal weekend plan?</p>
-        <label><input type="radio" name="q3" value="Netflix" required /> Netflix and chill</label>
-        <label><input type="radio" name="q3" value="Beach" /> Beach day</label>
-        <label><input type="radio" name="q3" value="Hiking" /> Hiking</label>
-        <label><input type="radio" name="q3" value="Gaming" /> Gaming session</label>
-        <label><input type="radio" name="q3" value="Coffee" /> Cafe hopping</label>
-      </div>
-
-      <div class="question">
-        <p>4. What matters most in a relationship?</p>
-        <label><input type="radio" name="q4" value="Trust" required /> Trust</label>
-        <label><input type="radio" name="q4" value="Communication" /> Communication</label>
-        <label><input type="radio" name="q4" value="Fun" /> Fun</label>
-        <label><input type="radio" name="q4" value="Stability" /> Stability</label>
-      </div>
-
-      <div class="question">
-        <p>5. What do you value most in a person?</p>
-        <label><input type="radio" name="q5" value="Humor" required /> Humor</label>
-        <label><input type="radio" name="q5" value="Looks" /> Looks</label>
-        <label><input type="radio" name="q5" value="Intelligence" /> Intelligence</label>
-        <label><input type="radio" name="q5" value="Empathy" /> Empathy</label>
-      </div>
-
-      <button type="submit">Submit Quiz</button>
-    </form>
+  <div class="container">
+    <div class="card">
+      <h2>The Quiz</h2>
+      <p>Answer these five questions to help us find your best matches.</p>
+      <form action="results.html">
+        <div class="question">
+          <p>1. Favorite spot to spend time together?</p>
+          <label><input type="radio" name="q1" required> Lovers park</label>
+          <label><input type="radio" name="q1"> Library</label>
+          <label><input type="radio" name="q1"> Benches near the mahabharath painting</label>
+          <label><input type="radio" name="q1"> Back canteen</label>
+          <label><input type="radio" name="q1"> 2nd floor of campus cafe</label>
+        </div>
+        <div class="question">
+          <p>2. What is your love language?</p>
+          <label><input type="radio" name="q2" required> Quality time</label>
+          <label><input type="radio" name="q2"> Acts of service</label>
+          <label><input type="radio" name="q2"> Words of affirmation</label>
+          <label><input type="radio" name="q2"> Physical touch</label>
+          <label><input type="radio" name="q2"> Gifts</label>
+        </div>
+        <div class="question">
+          <p>3. Dream date activity?</p>
+          <label><input type="radio" name="q3" required> Walk around campus</label>
+          <label><input type="radio" name="q3"> Night canteen run</label>
+          <label><input type="radio" name="q3"> Stargazing on hostel terrace</label>
+          <label><input type="radio" name="q3"> Movie night in class room</label>
+          <label><input type="radio" name="q3"> Group hangout turned date</label>
+        </div>
+        <div class="question">
+          <p>4. Ideal communication style?</p>
+          <label><input type="radio" name="q4" required> Constant texting</label>
+          <label><input type="radio" name="q4"> Short but deep conversations</label>
+          <label><input type="radio" name="q4"> Instagram memes</label>
+          <label><input type="radio" name="q4"> Surprise visits</label>
+          <label><input type="radio" name="q4"> Studying together</label>
+        </div>
+        <div class="question">
+          <p>5. Biggest turn-on in campus crush?</p>
+          <label><input type="radio" name="q5" required> Confidence</label>
+          <label><input type="radio" name="q5"> Humor</label>
+          <label><input type="radio" name="q5"> Intelligence</label>
+          <label><input type="radio" name="q5"> Fashion sense</label>
+          <label><input type="radio" name="q5"> Kindness</label>
+        </div>
+        <button type="submit">See Results</button>
+      </form>
+    </div>
   </div>
-
-  <script>
-    document.getElementById("quizForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      window.location.href = "results.html";
-    });
-  </script>
 </body>
 </html>
