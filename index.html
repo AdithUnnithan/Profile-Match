@@ -2,42 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CampusConnect</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="card">
-    <div class="icon">❤️</div>
+    <img src="https://img.icons8.com/ios-filled/50/like--v1.png" class="icon" />
     <h1>CampusConnect</h1>
-    <p class="description">Tell us who you are and find your campus crush.</p>
+    <p class="subtitle">Tell us who you are and find your campus crush.</p>
 
     <form id="profileForm">
-      <label>Full Name
-        <input type="text" id="name" placeholder="John Doe" required />
-      </label>
-      <label>Instagram ID
-        <div class="input-icon">
-          <span>📷</span>
-          <input type="text" id="instagramId" placeholder="john.doe" required />
-        </div>
-      </label>
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="John Doe" required />
 
-      <div class="section">
-        <label>Your Gender</label>
-        <div class="radio-group">
-          <label><input type="radio" name="gender" value="male" required /> Male</label>
-          <label><input type="radio" name="gender" value="female" /> Female</label>
-        </div>
+      <label>Instagram ID</label>
+      <div class="input-group">
+        <img src="https://img.icons8.com/ios/24/instagram-new.png" />
+        <input type="text" id="insta" placeholder="john.doe" required />
       </div>
 
-      <div class="section">
-        <label>I'm interested in...</label>
-        <div class="radio-group">
-          <label><input type="radio" name="preference" value="male" required /> Men</label>
-          <label><input type="radio" name="preference" value="female" /> Women</label>
-          <label><input type="radio" name="preference" value="any" /> Anyone</label>
-        </div>
+      <label>Your Gender</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" value="Male" required /> Male</label>
+        <label><input type="radio" name="gender" value="Female" /> Female</label>
+      </div>
+
+      <label>I'm interested in...</label>
+      <div class="radio-group">
+        <label><input type="radio" name="interest" value="Men" required /> Men</label>
+        <label><input type="radio" name="interest" value="Women" /> Women</label>
+        <label><input type="radio" name="interest" value="Anyone" /> Anyone</label>
       </div>
 
       <button type="submit">Create Profile & Start Quiz</button>
@@ -45,16 +40,8 @@
   </div>
 
   <script>
-    document.getElementById('profileForm').addEventListener('submit', function (e) {
+    document.getElementById("profileForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      const name = document.getElementById('name').value;
-      const instagramId = document.getElementById('instagramId').value;
-      const gender = document.querySelector('input[name="gender"]:checked')?.value;
-      const preference = document.querySelector('input[name="preference"]:checked')?.value;
-
-      localStorage.setItem('campusConnectUser', JSON.stringify({ name, instagramId, gender, preference }));
-      window.location.href = 'quiz.html';
-    });
-  </script>
-</body>
-</html>
+      const name = document.getElementById("name").value;
+      const insta = document.getElementById("insta").value;
+      const gender = document.querySelector("input[name='ge]()
