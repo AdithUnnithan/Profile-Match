@@ -1,70 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Quiz - CampusConnect</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Quiz</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="card">
-    <h2>The Quiz</h2>
-    <p>Answer these five questions to help us find your best matches.</p>
+    <h1>The Quiz</h1>
+    <p class="subtitle">Answer these five questions to help us find your best matches.</p>
 
     <form id="quizForm">
       <div class="question">
-        <label>1. Favorite spot to spend time together?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q1" required /> Lovers park</label>
-          <label><input type="radio" name="q1" /> Library</label>
-          <label><input type="radio" name="q1" /> Benches near the mahabharath painting</label>
-          <label><input type="radio" name="q1" /> Back canteen</label>
-          <label><input type="radio" name="q1" /> 2nd floor of campus cafe</label>
-        </div>
+        <p>1. Favorite spot to spend time together?</p>
+        <label><input type="radio" name="q1" value="Lovers park" required /> Lovers park</label>
+        <label><input type="radio" name="q1" value="Library" /> Library</label>
+        <label><input type="radio" name="q1" value="Benches near painting" /> Benches near the mahabharath painting</label>
+        <label><input type="radio" name="q1" value="Back canteen" /> Back canteen</label>
+        <label><input type="radio" name="q1" value="Campus cafe" /> 2nd floor of campus cafe</label>
       </div>
 
       <div class="question">
-        <label>2. What is your love language?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q2" required /> Words of affirmation</label>
-          <label><input type="radio" name="q2" /> Acts of service</label>
-          <label><input type="radio" name="q2" /> Receiving gifts</label>
-          <label><input type="radio" name="q2" /> Quality time</label>
-          <label><input type="radio" name="q2" /> Physical touch</label>
-        </div>
+        <p>2. What is your love language?</p>
+        <label><input type="radio" name="q2" value="Words" required /> Words of affirmation</label>
+        <label><input type="radio" name="q2" value="Touch" /> Physical touch</label>
+        <label><input type="radio" name="q2" value="Gifts" /> Gifts</label>
+        <label><input type="radio" name="q2" value="Quality time" /> Quality time</label>
+        <label><input type="radio" name="q2" value="Acts of service" /> Acts of service</label>
       </div>
 
       <div class="question">
-        <label>3. Ideal weekend plan?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q3" required /> Movie marathon</label>
-          <label><input type="radio" name="q3" /> Picnic at park</label>
-          <label><input type="radio" name="q3" /> Campus walk</label>
-          <label><input type="radio" name="q3" /> Cafe hopping</label>
-          <label><input type="radio" name="q3" /> Reading together</label>
-        </div>
+        <p>3. Ideal weekend plan?</p>
+        <label><input type="radio" name="q3" value="Netflix" required /> Netflix and chill</label>
+        <label><input type="radio" name="q3" value="Beach" /> Beach day</label>
+        <label><input type="radio" name="q3" value="Hiking" /> Hiking</label>
+        <label><input type="radio" name="q3" value="Gaming" /> Gaming session</label>
+        <label><input type="radio" name="q3" value="Coffee" /> Cafe hopping</label>
       </div>
 
       <div class="question">
-        <label>4. How do you show someone you care?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q4" required /> Surprise gifts</label>
-          <label><input type="radio" name="q4" /> Listening and supporting</label>
-          <label><input type="radio" name="q4" /> Spending time</label>
-          <label><input type="radio" name="q4" /> Doing tasks for them</label>
-          <label><input type="radio" name="q4" /> Physical affection</label>
-        </div>
+        <p>4. What matters most in a relationship?</p>
+        <label><input type="radio" name="q4" value="Trust" required /> Trust</label>
+        <label><input type="radio" name="q4" value="Communication" /> Communication</label>
+        <label><input type="radio" name="q4" value="Fun" /> Fun</label>
+        <label><input type="radio" name="q4" value="Stability" /> Stability</label>
       </div>
 
       <div class="question">
-        <label>5. What quality do you value most in a partner?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q5" required /> Loyalty</label>
-          <label><input type="radio" name="q5" /> Humor</label>
-          <label><input type="radio" name="q5" /> Intelligence</label>
-          <label><input type="radio" name="q5" /> Kindness</label>
-          <label><input type="radio" name="q5" /> Ambition</label>
-        </div>
+        <p>5. What do you value most in a person?</p>
+        <label><input type="radio" name="q5" value="Humor" required /> Humor</label>
+        <label><input type="radio" name="q5" value="Looks" /> Looks</label>
+        <label><input type="radio" name="q5" value="Intelligence" /> Intelligence</label>
+        <label><input type="radio" name="q5" value="Empathy" /> Empathy</label>
       </div>
 
       <button type="submit">Submit Quiz</button>
@@ -72,10 +60,9 @@
   </div>
 
   <script>
-    document.getElementById('quizForm').addEventListener('submit', function (e) {
+    document.getElementById("quizForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      // You can store answers here if needed
-      window.location.href = 'results.html';
+      window.location.href = "results.html";
     });
   </script>
 </body>
