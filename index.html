@@ -2,50 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CampusConnect – Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusConnect</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Create Your Profile</h1>
-    <form id="profile-form">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" required />
+    <div class="card">
+      <div class="icon">♡</div>
+      <h1>CampusConnect</h1>
+      <p class="subtitle">Tell us who you are and find your campus crush.</p>
 
-      <label for="instagram">Instagram ID</label>
-      <input type="text" id="instagram" required placeholder="example123" />
+      <form id="profileForm">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="John Doe" required />
 
-      <label>Your Gender</label>
-      <select id="gender" required>
-        <option value="">Select</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
+        <label>Instagram ID</label>
+        <div class="input-with-icon">
+          <span>@</span>
+          <input type="text" id="instagram" placeholder="john.doe" required />
+        </div>
 
-      <label>Interested in</label>
-      <select id="preference" required>
-        <option value="">Select</option>
-        <option value="male">Men</option>
-        <option value="female">Women</option>
-        <option value="any">Anyone</option>
-      </select>
+        <label>Your Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" value="male" required /> Male</label>
+          <label><input type="radio" name="gender" value="female" /> Female</label>
+        </div>
 
-      <button type="submit">Start Quiz</button>
-    </form>
+        <label>I'm interested in...</label>
+        <div class="radio-group">
+          <label><input type="radio" name="preference" value="male" required /> Men</label>
+          <label><input type="radio" name="preference" value="female" /> Women</label>
+          <label><input type="radio" name="preference" value="any" /> Anyone</label>
+        </div>
+
+        <button type="submit">Create Profile & Start Quiz</button>
+      </form>
+    </div>
   </div>
-
-  <script>
-    document.getElementById("profile-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const user = {
-        name: document.getElementById("name").value,
-        instagramId: document.getElementById("instagram").value,
-        gender: document.getElementById("gender").value,
-        preference: document.getElementById("preference").value,
-      };
-      localStorage.setItem("campusConnectUser", JSON.stringify(user));
-      window.location.href = "quiz.html";
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
